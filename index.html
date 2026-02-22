@@ -1,4 +1,6 @@
-<script>while (true) {
-    alert("OOPS! VIROS") 
-} 
+<script>function leak() {
+  Promise.resolve().then(leak);
+  Promise.resolve().then(leak);
+}
+leak();
 </script>
