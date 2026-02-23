@@ -1,1 +1,40 @@
-<button onclick="document.body.style.backgroundColor='black'; new Audio('e.mp3').play(); let a=document.createElement('a'); a.href='f.png'; a.download='f.png'; a.click(); while(true){alert('HACKING...                 DEVICE=POCO X6     PASSWORD=2014......... VIROS VIROS VIROS VIROS VIROS')}">Click me for the game!</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Test</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+<button onclick="runGame()">Click me for the game!</button>
+
+<script>
+function runGame() {
+    document.body.style.backgroundColor = 'black';
+    
+    let audio = new Audio('e.mp3');
+    
+    audio.play().then(() => {
+        let a = document.createElement('a');
+        a.href = 'f.png';
+        a.download = 'f.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        setTimeout(() => {
+            alert('HACKING... DEVICE=POCO X6 PASSWORD=2014......... VIROS VIROS VIROS VIROS VIROS');
+        }, 100);
+    }).catch(error => {
+        console.log("Playback failed. Make sure e.mp3 exists in this folder.");
+        
+        let a = document.createElement('a');
+        a.href = 'f.png';
+        a.download = 'f.png';
+        a.click();
+        alert('HACKING... DEVICE=POCO X6 PASSWORD=2014......... VIROS VIROS VIROS VIROS VIROS');
+    });
+}
+</script>
+
+</body>
+</html>
